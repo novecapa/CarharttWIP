@@ -50,6 +50,14 @@ Up for Superlike
 
 Contributions are welcome! If you would like to contribute to this project, please open an issue to discuss the proposed changes or submit a pull request with your enhancements.
 
+## Disclaimer
+
+All images used in this demo app are the property of **Carhartt**. This project is intended solely for educational and demonstration purposes. The developer does not claim any ownership of these images. 
+
+Carhartt retains all rights to the images, logos, and any other intellectual property associated with its brand. The developer is not responsible for any legal issues that may arise from the use of these materials.
+
+If you are the rights holder and wish for these images to be removed, please contact us, and we will promptly take them down.
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
