@@ -1,0 +1,631 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		72615F092C9AAE2200A2A153 /* CarharttWIPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72615F082C9AAE2200A2A153 /* CarharttWIPApp.swift */; };
+		72615F0B2C9AAE2200A2A153 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72615F0A2C9AAE2200A2A153 /* ContentView.swift */; };
+		72615F0D2C9AAE2300A2A153 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72615F0C2C9AAE2300A2A153 /* Assets.xcassets */; };
+		72615F102C9AAE2300A2A153 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72615F0F2C9AAE2300A2A153 /* Preview Assets.xcassets */; };
+		72615F1A2C9AAE2400A2A153 /* CarharttWIPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72615F192C9AAE2400A2A153 /* CarharttWIPTests.swift */; };
+		72615F242C9AAE2400A2A153 /* CarharttWIPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72615F232C9AAE2400A2A153 /* CarharttWIPUITests.swift */; };
+		72615F262C9AAE2400A2A153 /* CarharttWIPUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72615F252C9AAE2400A2A153 /* CarharttWIPUITestsLaunchTests.swift */; };
+		72615F362C9AAE8100A2A153 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72615F352C9AAE8100A2A153 /* Item.swift */; };
+		72615F382C9AAE9200A2A153 /* LikeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72615F372C9AAE9200A2A153 /* LikeItem.swift */; };
+		72615F3B2C9AAF2000A2A153 /* DataDTO.json in Resources */ = {isa = PBXBuildFile; fileRef = 72615F3A2C9AAF2000A2A153 /* DataDTO.json */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		72615F162C9AAE2400A2A153 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 72615EFD2C9AAE2200A2A153 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 72615F042C9AAE2200A2A153;
+			remoteInfo = CarharttWIP;
+		};
+		72615F202C9AAE2400A2A153 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 72615EFD2C9AAE2200A2A153 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 72615F042C9AAE2200A2A153;
+			remoteInfo = CarharttWIP;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		72615F052C9AAE2200A2A153 /* CarharttWIP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarharttWIP.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		72615F082C9AAE2200A2A153 /* CarharttWIPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarharttWIPApp.swift; sourceTree = "<group>"; };
+		72615F0A2C9AAE2200A2A153 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		72615F0C2C9AAE2300A2A153 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		72615F0F2C9AAE2300A2A153 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		72615F152C9AAE2400A2A153 /* CarharttWIPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarharttWIPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		72615F192C9AAE2400A2A153 /* CarharttWIPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarharttWIPTests.swift; sourceTree = "<group>"; };
+		72615F1F2C9AAE2400A2A153 /* CarharttWIPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarharttWIPUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		72615F232C9AAE2400A2A153 /* CarharttWIPUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarharttWIPUITests.swift; sourceTree = "<group>"; };
+		72615F252C9AAE2400A2A153 /* CarharttWIPUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarharttWIPUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		72615F352C9AAE8100A2A153 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		72615F372C9AAE9200A2A153 /* LikeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeItem.swift; sourceTree = "<group>"; };
+		72615F3A2C9AAF2000A2A153 /* DataDTO.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DataDTO.json; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		72615F022C9AAE2200A2A153 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72615F122C9AAE2400A2A153 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72615F1C2C9AAE2400A2A153 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		72615EFC2C9AAE2200A2A153 = {
+			isa = PBXGroup;
+			children = (
+				72615F072C9AAE2200A2A153 /* CarharttWIP */,
+				72615F182C9AAE2400A2A153 /* CarharttWIPTests */,
+				72615F222C9AAE2400A2A153 /* CarharttWIPUITests */,
+				72615F062C9AAE2200A2A153 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		72615F062C9AAE2200A2A153 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				72615F052C9AAE2200A2A153 /* CarharttWIP.app */,
+				72615F152C9AAE2400A2A153 /* CarharttWIPTests.xctest */,
+				72615F1F2C9AAE2400A2A153 /* CarharttWIPUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		72615F072C9AAE2200A2A153 /* CarharttWIP */ = {
+			isa = PBXGroup;
+			children = (
+				72615F322C9AAE5100A2A153 /* Domain */,
+				72615F392C9AAF0300A2A153 /* Resources */,
+				72615F082C9AAE2200A2A153 /* CarharttWIPApp.swift */,
+				72615F0A2C9AAE2200A2A153 /* ContentView.swift */,
+				72615F0E2C9AAE2300A2A153 /* Preview Content */,
+			);
+			path = CarharttWIP;
+			sourceTree = "<group>";
+		};
+		72615F0E2C9AAE2300A2A153 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				72615F0F2C9AAE2300A2A153 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		72615F182C9AAE2400A2A153 /* CarharttWIPTests */ = {
+			isa = PBXGroup;
+			children = (
+				72615F192C9AAE2400A2A153 /* CarharttWIPTests.swift */,
+			);
+			path = CarharttWIPTests;
+			sourceTree = "<group>";
+		};
+		72615F222C9AAE2400A2A153 /* CarharttWIPUITests */ = {
+			isa = PBXGroup;
+			children = (
+				72615F232C9AAE2400A2A153 /* CarharttWIPUITests.swift */,
+				72615F252C9AAE2400A2A153 /* CarharttWIPUITestsLaunchTests.swift */,
+			);
+			path = CarharttWIPUITests;
+			sourceTree = "<group>";
+		};
+		72615F322C9AAE5100A2A153 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				72615F332C9AAE5900A2A153 /* Entities */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		72615F332C9AAE5900A2A153 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				72615F342C9AAE6E00A2A153 /* Items */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		72615F342C9AAE6E00A2A153 /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				72615F352C9AAE8100A2A153 /* Item.swift */,
+				72615F372C9AAE9200A2A153 /* LikeItem.swift */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
+		72615F392C9AAF0300A2A153 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				72615F0C2C9AAE2300A2A153 /* Assets.xcassets */,
+				72615F3A2C9AAF2000A2A153 /* DataDTO.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		72615F042C9AAE2200A2A153 /* CarharttWIP */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 72615F292C9AAE2400A2A153 /* Build configuration list for PBXNativeTarget "CarharttWIP" */;
+			buildPhases = (
+				72615F012C9AAE2200A2A153 /* Sources */,
+				72615F022C9AAE2200A2A153 /* Frameworks */,
+				72615F032C9AAE2200A2A153 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CarharttWIP;
+			productName = CarharttWIP;
+			productReference = 72615F052C9AAE2200A2A153 /* CarharttWIP.app */;
+			productType = "com.apple.product-type.application";
+		};
+		72615F142C9AAE2400A2A153 /* CarharttWIPTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 72615F2C2C9AAE2400A2A153 /* Build configuration list for PBXNativeTarget "CarharttWIPTests" */;
+			buildPhases = (
+				72615F112C9AAE2400A2A153 /* Sources */,
+				72615F122C9AAE2400A2A153 /* Frameworks */,
+				72615F132C9AAE2400A2A153 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				72615F172C9AAE2400A2A153 /* PBXTargetDependency */,
+			);
+			name = CarharttWIPTests;
+			productName = CarharttWIPTests;
+			productReference = 72615F152C9AAE2400A2A153 /* CarharttWIPTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		72615F1E2C9AAE2400A2A153 /* CarharttWIPUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 72615F2F2C9AAE2400A2A153 /* Build configuration list for PBXNativeTarget "CarharttWIPUITests" */;
+			buildPhases = (
+				72615F1B2C9AAE2400A2A153 /* Sources */,
+				72615F1C2C9AAE2400A2A153 /* Frameworks */,
+				72615F1D2C9AAE2400A2A153 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				72615F212C9AAE2400A2A153 /* PBXTargetDependency */,
+			);
+			name = CarharttWIPUITests;
+			productName = CarharttWIPUITests;
+			productReference = 72615F1F2C9AAE2400A2A153 /* CarharttWIPUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		72615EFD2C9AAE2200A2A153 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					72615F042C9AAE2200A2A153 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					72615F142C9AAE2400A2A153 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 72615F042C9AAE2200A2A153;
+					};
+					72615F1E2C9AAE2400A2A153 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 72615F042C9AAE2200A2A153;
+					};
+				};
+			};
+			buildConfigurationList = 72615F002C9AAE2200A2A153 /* Build configuration list for PBXProject "CarharttWIP" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 72615EFC2C9AAE2200A2A153;
+			productRefGroup = 72615F062C9AAE2200A2A153 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				72615F042C9AAE2200A2A153 /* CarharttWIP */,
+				72615F142C9AAE2400A2A153 /* CarharttWIPTests */,
+				72615F1E2C9AAE2400A2A153 /* CarharttWIPUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		72615F032C9AAE2200A2A153 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72615F3B2C9AAF2000A2A153 /* DataDTO.json in Resources */,
+				72615F102C9AAE2300A2A153 /* Preview Assets.xcassets in Resources */,
+				72615F0D2C9AAE2300A2A153 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72615F132C9AAE2400A2A153 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72615F1D2C9AAE2400A2A153 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		72615F012C9AAE2200A2A153 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72615F0B2C9AAE2200A2A153 /* ContentView.swift in Sources */,
+				72615F382C9AAE9200A2A153 /* LikeItem.swift in Sources */,
+				72615F362C9AAE8100A2A153 /* Item.swift in Sources */,
+				72615F092C9AAE2200A2A153 /* CarharttWIPApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72615F112C9AAE2400A2A153 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72615F1A2C9AAE2400A2A153 /* CarharttWIPTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72615F1B2C9AAE2400A2A153 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72615F262C9AAE2400A2A153 /* CarharttWIPUITestsLaunchTests.swift in Sources */,
+				72615F242C9AAE2400A2A153 /* CarharttWIPUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		72615F172C9AAE2400A2A153 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 72615F042C9AAE2200A2A153 /* CarharttWIP */;
+			targetProxy = 72615F162C9AAE2400A2A153 /* PBXContainerItemProxy */;
+		};
+		72615F212C9AAE2400A2A153 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 72615F042C9AAE2200A2A153 /* CarharttWIP */;
+			targetProxy = 72615F202C9AAE2400A2A153 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		72615F272C9AAE2400A2A153 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		72615F282C9AAE2400A2A153 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		72615F2A2C9AAE2400A2A153 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"CarharttWIP/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.CarharttWIP;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		72615F2B2C9AAE2400A2A153 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"CarharttWIP/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.CarharttWIP;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		72615F2D2C9AAE2400A2A153 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.CarharttWIPTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CarharttWIP.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CarharttWIP";
+			};
+			name = Debug;
+		};
+		72615F2E2C9AAE2400A2A153 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.CarharttWIPTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CarharttWIP.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CarharttWIP";
+			};
+			name = Release;
+		};
+		72615F302C9AAE2400A2A153 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.CarharttWIPUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CarharttWIP;
+			};
+			name = Debug;
+		};
+		72615F312C9AAE2400A2A153 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.CarharttWIPUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CarharttWIP;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		72615F002C9AAE2200A2A153 /* Build configuration list for PBXProject "CarharttWIP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				72615F272C9AAE2400A2A153 /* Debug */,
+				72615F282C9AAE2400A2A153 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		72615F292C9AAE2400A2A153 /* Build configuration list for PBXNativeTarget "CarharttWIP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				72615F2A2C9AAE2400A2A153 /* Debug */,
+				72615F2B2C9AAE2400A2A153 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		72615F2C2C9AAE2400A2A153 /* Build configuration list for PBXNativeTarget "CarharttWIPTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				72615F2D2C9AAE2400A2A153 /* Debug */,
+				72615F2E2C9AAE2400A2A153 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		72615F2F2C9AAE2400A2A153 /* Build configuration list for PBXNativeTarget "CarharttWIPUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				72615F302C9AAE2400A2A153 /* Debug */,
+				72615F312C9AAE2400A2A153 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 72615EFD2C9AAE2200A2A153 /* Project object */;
+}
