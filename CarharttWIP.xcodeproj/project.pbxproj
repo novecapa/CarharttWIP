@@ -23,6 +23,7 @@
 		72A796052C9C3073002C98B2 /* LocalClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A796012C9C3073002C98B2 /* LocalClientTest.swift */; };
 		72A796062C9C3073002C98B2 /* LocalClientBadPathTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A796022C9C3073002C98B2 /* LocalClientBadPathTest.swift */; };
 		72A7960A2C9C30F0002C98B2 /* LikeWIPViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A796092C9C30F0002C98B2 /* LikeWIPViewModelTest.swift */; };
+		72BAF0CC2CA6E7A800CF1D20 /* ResultListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BAF0CB2CA6E7A800CF1D20 /* ResultListViewModelTests.swift */; };
 		72CB77E92C9AE89D008A8F9C /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CB77E82C9AE89D008A8F9C /* String+Extensions.swift */; };
 		72CB77EE2C9AE8BC008A8F9C /* LocalClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CB77EB2C9AE8BC008A8F9C /* LocalClientProtocol.swift */; };
 		72CB77EF2C9AE8BC008A8F9C /* LocalClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CB77EC2C9AE8BC008A8F9C /* LocalClient.swift */; };
@@ -84,6 +85,7 @@
 		72A796012C9C3073002C98B2 /* LocalClientTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalClientTest.swift; sourceTree = "<group>"; };
 		72A796022C9C3073002C98B2 /* LocalClientBadPathTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalClientBadPathTest.swift; sourceTree = "<group>"; };
 		72A796092C9C30F0002C98B2 /* LikeWIPViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeWIPViewModelTest.swift; sourceTree = "<group>"; };
+		72BAF0CB2CA6E7A800CF1D20 /* ResultListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultListViewModelTests.swift; sourceTree = "<group>"; };
 		72CB77E82C9AE89D008A8F9C /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		72CB77EB2C9AE8BC008A8F9C /* LocalClientProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalClientProtocol.swift; sourceTree = "<group>"; };
 		72CB77EC2C9AE8BC008A8F9C /* LocalClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalClient.swift; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				72A796082C9C30D0002C98B2 /* LikeWIP */,
+				72BAF0CA2CA6E79D00CF1D20 /* ResultList */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -273,6 +276,14 @@
 				72A796092C9C30F0002C98B2 /* LikeWIPViewModelTest.swift */,
 			);
 			path = LikeWIP;
+			sourceTree = "<group>";
+		};
+		72BAF0CA2CA6E79D00CF1D20 /* ResultList */ = {
+			isa = PBXGroup;
+			children = (
+				72BAF0CB2CA6E7A800CF1D20 /* ResultListViewModelTests.swift */,
+			);
+			path = ResultList;
 			sourceTree = "<group>";
 		};
 		72CB77E72C9AE896008A8F9C /* Extensions */ = {
@@ -607,6 +618,7 @@
 				72A796032C9C3073002C98B2 /* LocalClientEmptyTest.swift in Sources */,
 				72A796052C9C3073002C98B2 /* LocalClientTest.swift in Sources */,
 				72615F1A2C9AAE2400A2A153 /* CarharttWIPTests.swift in Sources */,
+				72BAF0CC2CA6E7A800CF1D20 /* ResultListViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
