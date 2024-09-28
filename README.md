@@ -8,6 +8,7 @@ The goal of this project is to create a simple, interactive app where users can 
 
 ## Screenshots
 
+![screen-recording](https://github.com/user-attachments/assets/7646813f-a73a-445f-a54e-fb9e4c3203da)
 
 
 ## How It Works
