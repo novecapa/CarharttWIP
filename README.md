@@ -6,15 +6,6 @@ This is a demo project showcasing how to implement drag gestures in SwiftUI to a
 
 The goal of this project is to create a simple, interactive app where users can swipe images of clothing items to the left, right, or top of the screen to indicate whether they dislike, like, or superlike the item. After reacting to 10 images, a final list is displayed, showing the clothes the user liked the most.
 
-### Key Features
-
-- **Swipe Gestures**: 
-  - **Left** - Dislike the item.
-  - **Right** - Like the item.
-  - **Up** - Superlike the item.
-- **SwiftUI Drag Gesture**: Utilizes native SwiftUI drag gesture capabilities for a smooth and responsive user experience.
-- **Summary View**: At the end of the process, a list of the most liked items is shown.
-
 ## How It Works
 
 1. The user is presented with an image of a clothing item.
