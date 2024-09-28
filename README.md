@@ -36,7 +36,7 @@ The goal of this project is to create a simple, interactive app where users can 
 
 ## Screenshots
 
-WIP
+
 
 ## Usage
 
