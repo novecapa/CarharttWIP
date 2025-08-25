@@ -9,11 +9,14 @@ import Foundation
 
 final class InputDataUseCase {
 
+    // MARK: Private
     private let repository: InputDataRepositoryProtocol
+
     init(repository: InputDataRepositoryProtocol) {
         self.repository = repository
     }
 }
+
 extension InputDataUseCase: InputDataUseCaseProtocol {
     func getItems() throws -> [Item] {
         try repository.getData()
