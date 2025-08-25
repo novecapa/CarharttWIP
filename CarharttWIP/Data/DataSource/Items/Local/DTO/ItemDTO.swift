@@ -11,6 +11,7 @@ struct ItemDTO: Codable {
     let title: String
     let image: String
 }
+
 extension ItemDTO {
     var toEntity: Item {
         Item(title: title, image: image)
