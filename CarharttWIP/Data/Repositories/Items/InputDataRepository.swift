@@ -9,11 +9,14 @@ import Foundation
 
 final class InputDataRepository {
 
+    // MARK: Private
     private let local: InputDataLocalProtocol
+
     init(local: InputDataLocalProtocol) {
         self.local = local
     }
 }
+
 extension InputDataRepository: InputDataRepositoryProtocol {
     func getData() throws -> [Item] {
         try local.getItems().items.map { $0.toEntity }
