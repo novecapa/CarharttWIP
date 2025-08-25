@@ -9,7 +9,9 @@ import Foundation
 
 final class InputDataLocal: InputDataLocalProtocol {
 
+    // MARK: Private
     private let client: LocalClientProtocol
+
     init(client: LocalClientProtocol) {
         self.client = client
     }
