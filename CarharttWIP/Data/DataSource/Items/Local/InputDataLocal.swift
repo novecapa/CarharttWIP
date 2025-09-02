@@ -7,15 +7,18 @@
 
 import Foundation
 
-final class InputDataLocal: InputDataLocalProtocol {
+final class InputDataLocal {
 
     // MARK: Private
+
     private let client: LocalClientProtocol
 
     init(client: LocalClientProtocol) {
         self.client = client
     }
-    
+}
+
+extension InputDataLocal: InputDataLocalProtocol {
     func getItems() throws -> DataDTO {
         try client.getData(type: DataDTO.self)
     }

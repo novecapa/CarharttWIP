@@ -22,6 +22,9 @@ final class ResultListViewModel {
         self.finalItemList = finalItemList
     }
 }
+
+// MARK: ResultListViewModel
+
 extension ResultListViewModel {
     var likeItems: [LikeItem] {
         finalItemList.filter { $0.like != .disLike }

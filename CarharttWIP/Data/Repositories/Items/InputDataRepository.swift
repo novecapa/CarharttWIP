@@ -10,6 +10,7 @@ import Foundation
 final class InputDataRepository {
 
     // MARK: Private
+
     private let local: InputDataLocalProtocol
 
     init(local: InputDataLocalProtocol) {

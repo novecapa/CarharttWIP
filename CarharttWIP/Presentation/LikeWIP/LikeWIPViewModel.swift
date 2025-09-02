@@ -9,7 +9,7 @@ import SwiftUI
 
 @Observable
 final class LikeWIPViewModel {
-
+    
     private enum Constants {
         static let maxLikeItems: Int = 10
         static let rotationAdjust: CGFloat = 50
@@ -24,7 +24,7 @@ final class LikeWIPViewModel {
         static let scaleEffect2LikeIcon: CGFloat = 0.6
         static let timeToHideLikeIcon: CGFloat = 1.25
     }
-
+    
     // Item list
     var itemList: [Item] = [] {
         didSet {
@@ -38,25 +38,30 @@ final class LikeWIPViewModel {
     var showProductList: Bool = false
     var showAlert: Bool = false
     var alertError: String = ""
-
+    
     // Animation
     var showLikeIcon = false
     var angle: Angle = .degrees(0.0)
     var offset: CGSize = .zero
     var taskTimer: Timer?
 
+    // MARK: Private
+
     private let useCase: InputDataUseCaseProtocol
+
     init(useCase: InputDataUseCaseProtocol) {
         self.useCase = useCase
     }
+}
 
-    private func handleError(_ error: Error) {
+// MARK: Private Methods
+
+private extension LikeWIPViewModel {
+    func handleError(_ error: Error) {
         alertError = error.localizedDescription
         showAlert.toggle()
     }
-}
-// MARK: Private Methods
-private extension LikeWIPViewModel {
+
     func checkLikeType(_ translation: CGSize) -> LikeType {
         if translation.height < Constants.negativeAdjust {
             return .superLike
@@ -74,7 +79,9 @@ private extension LikeWIPViewModel {
         return .none
     }
 }
+
 // MARK: Public Methods
+
 extension LikeWIPViewModel {
     func fetchData() {
         Task {
@@ -107,7 +114,9 @@ extension LikeWIPViewModel {
         )
     }
 }
+
 // MARK: Animation methods
+
 extension LikeWIPViewModel {
     func currentOffsetX(_ index: Int) -> CGFloat {
         CGFloat(index == itemList.count - 1 ? offset.width : 0)
