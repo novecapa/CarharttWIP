@@ -10,9 +10,9 @@ import Foundation
 final class InputDataRepository {
 
     // MARK: Private
-
     private let local: InputDataLocalProtocol
 
+    // MARK: Init
     init(local: InputDataLocalProtocol) {
         self.local = local
     }

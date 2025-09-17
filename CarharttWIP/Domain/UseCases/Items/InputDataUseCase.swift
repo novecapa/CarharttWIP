@@ -10,9 +10,9 @@ import Foundation
 final class InputDataUseCase {
 
     // MARK: Private
-
     private let repository: InputDataRepositoryProtocol
 
+    // MARK: Init
     init(repository: InputDataRepositoryProtocol) {
         self.repository = repository
     }

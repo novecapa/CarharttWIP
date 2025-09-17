@@ -15,9 +15,12 @@ final class ResultListViewModel {
     }
 
     var isToast: Bool = false
-    private var taskTimer: Timer?
 
+    // MARK: Private
+    private var taskTimer: Timer?
     private var finalItemList: [LikeItem]
+
+    // MARK: Init
     init(finalItemList: [LikeItem]) {
         self.finalItemList = finalItemList
     }

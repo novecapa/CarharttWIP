@@ -10,9 +10,9 @@ import Foundation
 final class InputDataLocal {
 
     // MARK: Private
-
     private let client: LocalClientProtocol
 
+    // MARK: Init
     init(client: LocalClientProtocol) {
         self.client = client
     }
