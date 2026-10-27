@@ -7,8 +7,9 @@
 
 import Foundation
 
-struct Item: Identifiable, Equatable, Hashable {
-    let id = UUID()
+struct Item: Identifiable, Hashable, Sendable {
+    // The bundled catalog has no product ID; its image URL is its unique, stable key.
+    var id: String { image }
     let title: String
     let image: String
 }

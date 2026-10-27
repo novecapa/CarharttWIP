@@ -19,7 +19,7 @@ final class InputDataUseCase {
 }
 
 extension InputDataUseCase: InputDataUseCaseProtocol {
-    func getItems() throws -> [Item] {
-        try repository.getData()
+    func getItems() async throws -> [Item] {
+        try await repository.getData()
     }
 }

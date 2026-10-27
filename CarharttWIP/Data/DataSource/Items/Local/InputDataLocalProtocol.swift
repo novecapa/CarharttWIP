@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol InputDataLocalProtocol {
-    func getItems() throws -> DataDTO
+protocol InputDataLocalProtocol: Sendable {
+    func getItems() async throws -> DataDTO
 }

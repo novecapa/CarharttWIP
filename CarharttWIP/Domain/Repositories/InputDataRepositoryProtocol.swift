@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol InputDataRepositoryProtocol {
-    func getData() throws -> [Item]
+protocol InputDataRepositoryProtocol: Sendable {
+    func getData() async throws -> [Item]
 }

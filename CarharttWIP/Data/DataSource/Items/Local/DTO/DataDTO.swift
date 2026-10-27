@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DataDTO: Codable {
+struct DataDTO: Decodable, Sendable {
     let items: [ItemDTO]
 
     enum CodingKeys: String, CodingKey {

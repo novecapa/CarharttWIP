@@ -9,7 +9,7 @@ import SwiftUI
 
 struct GameView: View {
 
-    @State var showGameView: Bool = false
+    let onStart: () -> Void
     
     var body: some View {
         VStack {
@@ -31,7 +31,7 @@ struct GameView: View {
             
             Spacer().frame(height: 15)
 
-            Text("React to 10 articles and access your recommendations. The game changes every day!".localized())
+            Text("React to 10 articles and access your recommendations. Start a new round whenever you like!".localized())
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding([.horizontal], 16)
                 .font(.caption)
@@ -39,7 +39,7 @@ struct GameView: View {
             Spacer().frame(height: 40)
             
             Button {
-                showGameView.toggle()
+                onStart()
             } label: {
                 Text("Start playing".localized())
                     .foregroundStyle(Color.white)
@@ -49,14 +49,15 @@ struct GameView: View {
             .frame(maxWidth: .infinity)
             .frame(height: 54)
             .background(Color.black)
+            .accessibilityIdentifier("game.start")
             .padding(.all, 16)
         }
-        .fullScreenCover(isPresented: $showGameView, content: {
-            LikeWIPViewBuilder().build()
-        })
+
     }
 }
 
+#if DEBUG
 #Preview {
-    GameView()
+    GameView(onStart: {})
 }
+#endif

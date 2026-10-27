@@ -5,86 +5,47 @@
 //  Created by Josep Cerdá Penadés on 18/9/24.
 //
 
-import SwiftUI
+import Foundation
+import Observation
 
+@MainActor
 @Observable
 final class ResultListViewModel {
-
-    enum Constants {
-        static let timeToHideToast: CGFloat = 2.5
+    struct Toast: Equatable {
+        let id = UUID()
+        let itemCount: Int
     }
 
-    var isToast: Bool = false
-
-    // MARK: Private
-    private var taskTimer: Timer?
-    private var finalItemList: [LikeItem]
-
-    // MARK: Init
-    init(finalItemList: [LikeItem]) {
-        self.finalItemList = finalItemList
-    }
-}
-
-// MARK: ResultListViewModel
-
-extension ResultListViewModel {
-    var likeItems: [LikeItem] {
-        finalItemList.filter { $0.like != .disLike }
+    struct State {
+        var reactions: [LikeItem]
+        var toast: Toast?
     }
 
-    var titleText: String {
-        "\("Final articles list".localized()) (\(likeItems.count)/\(finalItemList.count))"
+    private(set) var state: State
+    private let interactor: ResultListInteractor
+    private let router: ResultListRouter
+
+    init(reactions: [LikeItem], interactor: ResultListInteractor, router: ResultListRouter) {
+        state = State(reactions: reactions)
+        self.interactor = interactor
+        self.router = router
     }
 
-    func likeMenuOptions(_ item: LikeItem) -> some View {
-        return VStack {
-            if item.like == .like {
-                Button {
-                    self.updateValue(item, like: .superLike)
-                } label: {
-                    Label("Superlike".localized(),
-                          image: .superLike)
-                }
-            } else if item.like == .superLike {
-                Button {
-                    self.updateValue(item, like: .like)
-                } label: {
-                    Label("Like".localized(),
-                          image: .like)
-                }
-            }
-            Button {
-                self.updateValue(item, like: .disLike)
-            } label: {
-                Label("Delete from list".localized(),
-                      image: .disLike)
-            }
+    var likedItems: [LikeItem] { interactor.likedItems(in: state.reactions) }
+
+    func send(_ action: ResultListAction) {
+        switch action {
+        case .changeReaction(let id, let reaction):
+            state.reactions = interactor.updating(state.reactions, itemID: id, reaction: reaction)
+        case .addToCartTapped:
+            guard !likedItems.isEmpty else { return }
+            // Demo feedback only. There is deliberately no checkout or persistence.
+            state.toast = Toast(itemCount: likedItems.count)
+        case .toastExpired(let id):
+            guard state.toast?.id == id else { return }
+            state.toast = nil
+        case .closeTapped:
+            router.playAgain()
         }
-    }
-
-    func updateValue(_ item: LikeItem, like: LikeType) {
-        if let index = finalItemList.firstIndex(of: item) {
-            finalItemList[index].like = like
-        }
-    }
-
-    var showButtonAddCart: Bool {
-        !likeItems.isEmpty
-    }
-
-    func showAndHideToast() {
-        isToast = true
-        taskTimer?.invalidate()
-        taskTimer = Timer.scheduledTimer(withTimeInterval: Constants.timeToHideToast,
-                                         repeats: false) { _ in
-            withAnimation {
-                self.isToast = false
-            }
-        }
-    }
-
-    var totalProductsAdded: String {
-        "\("You added".localized()) \(likeItems.count) \("articles".localized())"
     }
 }

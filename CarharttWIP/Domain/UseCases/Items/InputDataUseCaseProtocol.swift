@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol InputDataUseCaseProtocol {
-    func getItems() throws -> [Item]
+protocol InputDataUseCaseProtocol: Sendable {
+    func getItems() async throws -> [Item]
 }

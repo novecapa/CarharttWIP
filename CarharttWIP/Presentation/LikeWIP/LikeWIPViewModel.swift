@@ -5,177 +5,72 @@
 //  Created by Josep Cerdá Penadés on 18/9/24.
 //
 
-import SwiftUI
+import Foundation
+import Observation
 
+@MainActor
 @Observable
 final class LikeWIPViewModel {
-    
-    private enum Constants {
-        static let maxLikeItems: Int = 10
-        static let rotationAdjust: CGFloat = 50
-        static let swipeAccept: CGFloat = 250
-        // Swipe offsets
-        static let negativeAdjust: CGFloat = -100
-        static let positiveAdjust: CGFloat = 100
-        // Animated like icon
-        static let frameSizeLikeIcon: CGFloat = 60
-        static let paddingLikeIcon: CGFloat = 16
-        static let cornerRadiusLikeIcon: CGFloat = 30
-        static let scaleEffect2LikeIcon: CGFloat = 0.6
-        static let timeToHideLikeIcon: CGFloat = 1.25
-    }
-    
-    // Item list
-    var itemList: [Item] = [] {
-        didSet {
-            if itemList.isEmpty {
-                showProductList.toggle()
-            }
-        }
-    }
-    var finalItemList: [LikeItem] = []
-    var currentTypeLike: LikeType = .none
-    var showProductList: Bool = false
-    var showAlert: Bool = false
-    var alertError: String = ""
-    
-    // Animation
-    var showLikeIcon = false
-    var angle: Angle = .degrees(0.0)
-    var offset: CGSize = .zero
-    var taskTimer: Timer?
-
-    // MARK: Private
-
-    private let useCase: InputDataUseCaseProtocol
-
-    init(useCase: InputDataUseCaseProtocol) {
-        self.useCase = useCase
-    }
-}
-
-// MARK: Private Methods
-
-private extension LikeWIPViewModel {
-    func handleError(_ error: Error) {
-        alertError = error.localizedDescription
-        showAlert.toggle()
+    enum Phase: Equatable {
+        case idle
+        case loading
+        case loaded
+        case failed(String)
     }
 
-    func checkLikeType(_ translation: CGSize) -> LikeType {
-        if translation.height < Constants.negativeAdjust {
-            return .superLike
-        }
-        if translation.width < Constants.negativeAdjust &&
-            translation.height > Constants.negativeAdjust &&
-            translation.height < Constants.positiveAdjust {
-            return .disLike
-        }
-        if translation.width > Constants.positiveAdjust &&
-            translation.height > Constants.negativeAdjust &&
-            translation.height < Constants.positiveAdjust {
-            return .like
-        }
-        return .none
+    struct Feedback: Equatable {
+        let id = UUID()
+        let reaction: LikeType
     }
-}
 
-// MARK: Public Methods
+    struct State {
+        var phase: Phase = .idle
+        var session = GameSession(items: [])
+        var loadID = 0
+        var feedback: Feedback?
+    }
 
-extension LikeWIPViewModel {
-    func fetchData() {
-        Task {
-            do {
-                itemList = try useCase.getItems().reversed()
-            } catch {
-                handleError(error)
+    private(set) var state = State()
+    private let interactor: LikeWIPInteractor
+    private let router: LikeWIPRouter
+
+    init(interactor: LikeWIPInteractor, router: LikeWIPRouter) {
+        self.interactor = interactor
+        self.router = router
+    }
+
+    func load() async {
+        guard state.phase == .idle else { return }
+        state.phase = .loading
+        do {
+            let session = try await interactor.loadSession()
+            try Task.checkCancellation()
+            state.session = session
+            state.phase = .loaded
+        } catch {
+            if Task.isCancelled || error is CancellationError {
+                state.phase = .idle
+            } else {
+                state.phase = .failed(error.localizedDescription)
             }
         }
     }
 
-    func resetData() {
-        finalItemList.removeAll()
-    }
-
-    var productName: String {
-        (itemList.last?.title ?? "").capitalizingFirstLetter()
-    }
-
-    var reactionString: String {
-        "\("React to".localized()) \(itemList.count) \("articles".localized())"
-    }
-
-    func setLikeItem(_ translation: CGSize, item: Item) {
-        guard finalItemList.count < Constants.maxLikeItems else { return }
-        currentTypeLike = checkLikeType(translation)
-        guard currentTypeLike != .none else { return }
-        finalItemList.append(
-            LikeItem(item: item, like: currentTypeLike)
-        )
-    }
-}
-
-// MARK: Animation methods
-
-extension LikeWIPViewModel {
-    func currentOffsetX(_ index: Int) -> CGFloat {
-        CGFloat(index == itemList.count - 1 ? offset.width : 0)
-    }
-
-    func currentOffsetY(_ index: Int) -> CGFloat {
-        CGFloat(index == itemList.count - 1 ? offset.height : 0)
-    }
-
-    func currentAngle(_ index: Int) -> Angle {
-        index == itemList.count - 1 ? angle : .degrees(0.0)
-    }
-
-    func resetOffset() {
-        offset = .zero
-        angle = .degrees(0.0)
-    }
-
-    func setRotation(_ translation: CGSize) {
-        let rotationAngle = Angle(radians: Double(translation.width / Constants.rotationAdjust) / Constants.rotationAdjust)
-        angle = rotationAngle
-        offset = translation
-    }
-
-    func setGestureSwipe(_ translation: CGSize,
-                         item: Item,
-                         index: Int) {
-        if abs(translation.width) > Constants.swipeAccept ||
-            abs(translation.height) > Constants.swipeAccept {
-            setLikeItem(translation, item: item)
-            withAnimation(.easeInOut) {
-                showLikeIcon = true
-                resetOffset()
-                itemList.remove(at: index)
-                hideLikeIcon()
-            }
-        }
-        resetOffset()
-    }
-
-    var imageLikeResult: some View {
-        Image(currentTypeLike.rawValue)
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .padding(Constants.paddingLikeIcon)
-            .background(.white)
-            .frame(width: Constants.frameSizeLikeIcon,
-                   height: Constants.frameSizeLikeIcon)
-            .cornerRadius(Constants.cornerRadiusLikeIcon)
-            .scaleEffect(showLikeIcon ? 1.0 : Constants.scaleEffect2LikeIcon)
-            .animation(.easeInOut(duration: 1.0), value: showLikeIcon)
-            .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
-    }
-
-    private func hideLikeIcon() {
-        taskTimer?.invalidate()
-        taskTimer = Timer.scheduledTimer(withTimeInterval: Constants.timeToHideLikeIcon,
-                                         repeats: false) { _ in
-            self.showLikeIcon = false
+    func send(_ action: LikeWIPAction) {
+        switch action {
+        case .react(let itemID, let reaction):
+            guard state.phase == .loaded,
+                  state.session.react(to: itemID, with: reaction) else { return }
+            state.feedback = Feedback(reaction: reaction)
+            if state.session.isComplete { router.showResults(state.session.reactions) }
+        case .retryTapped:
+            guard state.phase != .loading else { return }
+            state = State(loadID: state.loadID + 1)
+        case .closeTapped:
+            router.close()
+        case .feedbackExpired(let id):
+            guard state.feedback?.id == id else { return }
+            state.feedback = nil
         }
     }
 }

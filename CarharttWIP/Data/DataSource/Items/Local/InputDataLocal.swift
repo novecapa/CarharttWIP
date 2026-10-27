@@ -19,7 +19,7 @@ final class InputDataLocal {
 }
 
 extension InputDataLocal: InputDataLocalProtocol {
-    func getItems() throws -> DataDTO {
-        try client.getData(type: DataDTO.self)
+    func getItems() async throws -> DataDTO {
+        try await client.getData(type: DataDTO.self, resource: "DataDTO")
     }
 }

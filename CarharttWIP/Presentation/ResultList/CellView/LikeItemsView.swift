@@ -40,7 +40,9 @@ struct LikeItemsView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .font(.caption)
                 Image(item.like.rawValue)
+                    .renderingMode(.template)
                     .resizable()
+                    .foregroundStyle(.primary)
                     .frame(width: Constants.likeIconSize,
                            height: Constants.likeIconSize)
             }

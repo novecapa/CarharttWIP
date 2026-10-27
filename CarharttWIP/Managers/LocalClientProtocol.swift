@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol LocalClientProtocol {
-    func getData<T: Decodable>(type: T.Type) throws -> T
+protocol LocalClientProtocol: Sendable {
+    func getData<T: Decodable & Sendable>(type: T.Type, resource: String) async throws -> T
 }

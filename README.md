@@ -1,38 +1,57 @@
-# SwiftUI Drag Gesture Demo - Like, Dislike, Superlike Clothes
+# CarharttWIP SwiftUI Demo
 
-This is a demo project showcasing how to implement drag gestures in SwiftUI to allow users to express preferences (like, dislike, superlike) on a series of clothing items.
+A clothing discovery demo: react to up to ten products by swiping left (dislike), right (like) or up (superlike), then review and edit your selection. Accessible buttons offer the same actions. The catalog is bundled JSON; product images load from their original remote URLs.
 
-## Project Overview
+![Screen recording of the original demo](https://github.com/user-attachments/assets/7646813f-a73a-445f-a54e-fb9e4c3203da)
 
-The goal of this project is to create a simple, interactive app where users can swipe images of clothing items to the left, right, or top of the screen to indicate whether they dislike, like, or superlike the item. After reacting to 10 images, a final list is displayed, showing the clothes the user liked the most.
+The recording shows the original UI. The refactor adds reaction buttons and explicit loading, empty and error states.
 
-## Screenshots
+## Run
 
-![screen-recording](https://github.com/user-attachments/assets/7646813f-a73a-445f-a54e-fb9e4c3203da)
+- Xcode 16 or newer, with Swift 6 language support.
+- iOS 17.2 or newer.
+- No third-party dependencies or API credentials.
 
+Open `CarharttWIP.xcodeproj`, select the shared `CarharttWIP` scheme and run on an iOS simulator. Device installation requires your own signing configuration.
 
-## How It Works
+## Architecture
 
-1. The user is presented with an image of a clothing item.
-2. The user can swipe the image:
-   - **Left** for dislike
-   - **Right** for like
-   - **Up** for superlike
-3. After swiping through 10 items, a final screen is displayed, summarizing the items the user liked the most.
+The presentation pattern is adapted from Mestria: **View → ViewModel → Interactor → UseCase → Repository → DataSource**. A ViewModel presents read-only state and handles typed actions; a feature Router names destinations; a ViewBuilder wires each scene. `AppDependencies` constructs the concrete dependency graph and `AppRouter` owns navigation.
 
-## Installation
+| Area | Responsibility |
+| --- | --- |
+| `Presentation` | SwiftUI rendering, MainActor state, actions, gesture interpretation and navigation. |
+| `Domain` | Entities, repository contracts, round invariants and recommendation rules. |
+| `Data` | Bundled catalog access and DTO mapping. |
+| `Managers` | Actor-isolated file reading and JSON decoding. |
+| `Preview Content` | In-memory preview dependencies, excluded from Release behavior. |
 
-1. Clone or download the repository to your local machine.
-2. Open the project in Xcode.
-3. Build and run the application on an iOS simulator or device.
+`GameSession` limits a round to ten distinct products and accepts each current product once. An empty catalog stays on an empty state; a failed load exposes a retry. Results are presented only after a nonempty round finishes. Closing results starts a fresh round; closing the game returns home.
 
-## System Requirements
+See the [architecture audit and decisions](docs/architecture-audit.md) for the original defects, tradeoffs, validation scope and suggested commit boundaries.
 
-- iOS 16
+## Tests
+
+```bash
+Scripts/test-ios.sh
+
+# Select a particular installed simulator and run only unit tests:
+SIMULATOR_UDID=<device-uuid> Scripts/test-ios.sh -only-testing:CarharttWIPTests
+```
+
+The script selects an available iPhone simulator by default. It supports `DERIVED_DATA_PATH` and `RESULT_BUNDLE_PATH` overrides; results default to `.build/`.
+
+- Swift Testing covers domain rules, real catalog decoding, presentation transitions, cancellation, retry and routing. It uses deterministic inputs and controlled continuations instead of timed waits.
+- XCUITest covers a full round, demo cart feedback, replay, closing the game, an all-disliked round and directional swipes.
+- [GitHub Actions](.github/workflows/ios.yml) runs the same suite with coverage, builds Release and uploads the test result bundle.
+
+## Demo scope
+
+This is an educational project with an in-memory selection. “Add to cart” displays explicitly labeled demo feedback; it does not create an order. The catalog does not rotate daily. Image availability depends on the source CDN. English is the only supplied UI language.
 
 ## Contributions
 
-Contributions are welcome! If you would like to contribute to this project, please open an issue to discuss the proposed changes or submit a pull request with your enhancements.
+Open an issue to discuss a change, or submit a pull request with the behavior it improves and the checks used to verify it.
 
 ## Disclaimer
 

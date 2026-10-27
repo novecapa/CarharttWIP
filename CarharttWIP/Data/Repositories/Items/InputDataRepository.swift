@@ -19,7 +19,7 @@ final class InputDataRepository {
 }
 
 extension InputDataRepository: InputDataRepositoryProtocol {
-    func getData() throws -> [Item] {
-        try local.getItems().items.map { $0.toEntity }
+    func getData() async throws -> [Item] {
+        try await local.getItems().items.map { $0.toEntity }
     }
 }

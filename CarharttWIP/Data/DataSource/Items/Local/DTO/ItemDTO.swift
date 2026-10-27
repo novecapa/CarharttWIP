@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ItemDTO: Codable {
+struct ItemDTO: Decodable, Sendable {
     let title: String
     let image: String
 }

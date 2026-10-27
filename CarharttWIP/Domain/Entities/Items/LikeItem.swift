@@ -7,14 +7,13 @@
 
 import Foundation
 
-enum LikeType: String {
+enum LikeType: String, Sendable {
     case like
     case superLike
     case disLike
-    case none
 }
 
-struct LikeItem: Hashable {
+struct LikeItem: Hashable, Sendable {
     let item: Item
     var like: LikeType
 }

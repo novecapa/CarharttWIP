@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct CarharttWIPApp: App {
+    private let dependencies = AppDependencies.live()
+
     var body: some Scene {
         WindowGroup {
-            GameView()
+            RootView(dependencies: dependencies)
         }
     }
 }

@@ -1,3 +1,4 @@
+#if DEBUG
 //
 //  LikeItem+Extensions.swift
 //  CarharttWIP
@@ -30,3 +31,5 @@ extension Array where Element == LikeItem {
                  like: .disLike)
     ]
 }
+
+#endif

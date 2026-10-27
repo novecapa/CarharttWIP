@@ -7,20 +7,27 @@
 
 import Foundation
 
-final class LocalClient: LocalClientProtocol {
+/// Serializes bundled file access away from MainActor.
+actor LocalClient: LocalClientProtocol {
+    private let bundle: Bundle
 
-    private enum Constants {
-        static let jsonExt = "json"
+    init(bundle: Bundle = .main) {
+        self.bundle = bundle
     }
 
-    func getData<T>(type: T.Type) throws -> T where T : Decodable {
-        let fileName = "\(T.self)"
-        guard let url = Bundle.main.url(forResource: fileName,
-                                        withExtension: Constants.jsonExt) else {
+    func getData<T: Decodable & Sendable>(type: T.Type, resource: String) async throws -> T {
+        try Task.checkCancellation()
+        guard let url = bundle.url(forResource: resource, withExtension: "json") else {
             throw LocalClientError.badPath
         }
+        let data: Data
         do {
-            let data = try Data(contentsOf: url)
+            data = try Data(contentsOf: url)
+        } catch {
+            throw LocalClientError.readError
+        }
+        try Task.checkCancellation()
+        do {
             return try JSONDecoder().decode(T.self, from: data)
         } catch {
             throw LocalClientError.decodeError

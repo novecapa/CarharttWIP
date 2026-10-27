@@ -8,94 +8,84 @@
 import SwiftUI
 
 struct ResultListView: View {
-
-    private enum Constants {
-        // Fonts, Images
-        static let toastHeight: CGFloat = 60
-        static let closeIcon: String = "xmark"
-        static let iconSize: CGFloat = 18
-        static let alphaButtonClose: CGFloat = 0.8
-        static let columnNumber: CGFloat = 2
-        static let columnSpacing: CGFloat = 2
-        static let buttonHeight: CGFloat = 44
-    }
-
     @State var viewModel: ResultListViewModel
-    @Environment(\.dismiss) var dismiss
-
-    private let gridItems = Array(
-        repeating: GridItem(.flexible(),
-                            spacing: Constants.columnSpacing),
-        count: Int(Constants.columnNumber)
-    )
+    private let columns = [GridItem(.flexible()), GridItem(.flexible())]
 
     var body: some View {
-        ZStack {
-            VStack {
-                if viewModel.isToast {
-                    Text(viewModel.totalProductsAdded)
-                        .transition(.move(edge: .top).combined(with: .opacity))
-                        .frame(height: Constants.toastHeight)
-                        .frame(maxWidth: .infinity)
-                        .background(.black)
-                        .foregroundColor(.white)
+        VStack {
+            if let toast = viewModel.state.toast {
+                Text("Demo: \(toast.itemCount) articles selected. No order was placed.")
+                    .font(.callout)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(.black)
+                    .foregroundStyle(.white)
+                    .accessibilityIdentifier("results.toast")
+            }
+            HStack {
+                Text("Final articles list (\(viewModel.likedItems.count)/\(viewModel.state.reactions.count))")
+                    .font(.subheadline)
+                    .accessibilityIdentifier("results.title")
+                Spacer()
+                Button {
+                    viewModel.send(.closeTapped)
+                } label: {
+                    Image(systemName: "xmark")
+                        .foregroundStyle(.primary)
+                        .frame(width: 44, height: 44)
+                        .contentShape(Rectangle())
                 }
-                HStack {
-                    Text(viewModel.titleText)
-                        .font(.subheadline)
-                    Spacer()
-                    Image(systemName: Constants.closeIcon)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: Constants.iconSize,
-                               height: Constants.iconSize)
-                        .foregroundColor(.black).opacity(Constants.alphaButtonClose)
-                        .onTapGesture {
-                            dismiss()
-                        }
-                }
-                .padding()
-                // Implementar listado productos con like y superlike
+                .accessibilityLabel("Play again")
+                .accessibilityIdentifier("results.close")
+            }
+            .padding()
+            if viewModel.likedItems.isEmpty {
+                ContentUnavailableView("You don't have any items listed", systemImage: "heart.slash")
+            } else {
                 GeometryReader { geometry in
-                    let frameSize = geometry.size.width / Constants.columnNumber
-                    ScrollView(.vertical, showsIndicators: false) {
-                        LazyVGrid(columns: gridItems,
-                                  spacing: Constants.columnSpacing) {
-                            ForEach(viewModel.likeItems, id: \.item.id) { item in
-                                LikeItemsView(item: item, frameSize: frameSize)
-                                    .contextMenu(ContextMenu(menuItems: {
-                                        viewModel.likeMenuOptions(item)
-                                    }))
+                    ScrollView {
+                        LazyVGrid(columns: columns, spacing: 2) {
+                            ForEach(viewModel.likedItems, id: \.item.id) { item in
+                                LikeItemsView(item: item, frameSize: (geometry.size.width - 16) / 2)
+                                    .contextMenu { reactionMenu(for: item) }
                             }
                         }
                     }
-                    .padding(.horizontal, Constants.columnSpacing)
                 }
-                if viewModel.showButtonAddCart {
-                    Button(action: {
-                        withAnimation {
-                            viewModel.showAndHideToast()
-                        }
-                    }, label: {
-                        Text("Add to cart".localized())
-                            .foregroundStyle(.white)
-                            .frame(maxWidth: .infinity)
-                            .frame(height: Constants.buttonHeight)
-                            .background(.black)
-                            .padding()
-                    })
-                }
-            }
-            if viewModel.likeItems.isEmpty {
-                Spacer()
-                Text("You don't have any items listed".localized())
-                    .font(.caption)
-                Spacer()
+                Button("Add to cart (demo)") { viewModel.send(.addToCartTapped) }
+                    .frame(maxWidth: .infinity, minHeight: 44)
+                    .foregroundStyle(.white)
+                    .background(.black)
+                    .padding()
+                    .accessibilityIdentifier("results.addToCart")
             }
         }
+        .task(id: viewModel.state.toast?.id) {
+            guard let id = viewModel.state.toast?.id else { return }
+            do { try await Task.sleep(for: .seconds(2.5)) } catch { return }
+            viewModel.send(.toastExpired(id))
+        }
+    }
+
+    @ViewBuilder
+    private func reactionMenu(for entry: LikeItem) -> some View {
+        if entry.like == .like {
+            Button { change(entry, to: .superLike) } label: { Label("Superlike", image: .superLike) }
+        } else {
+            Button { change(entry, to: .like) } label: { Label("Like", image: .like) }
+        }
+        Button(role: .destructive) { change(entry, to: .disLike) } label: {
+            Label("Delete from list", image: .disLike)
+        }
+    }
+
+    private func change(_ entry: LikeItem, to reaction: LikeType) {
+        viewModel.send(.changeReaction(itemID: entry.item.id, reaction: reaction))
     }
 }
 
+#if DEBUG
 #Preview {
-    ResultListViewBuilder().build(.mockItemsRandom)
+    ResultListViewBuilder().build(.mockItemsRandom, dependencies: .preview(), router: AppRouter())
 }
+#endif
